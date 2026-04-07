@@ -1,0 +1,2046 @@
+/* ============================================
+   PARIS BY EMILY — Design System & Styles
+   ============================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --color-cream: #F2EBE3;
+  --color-cream-dark: #E8DFD4;
+  --color-black: #0a0a0a;
+  --color-white: #FFFFFF;
+  --color-pink: #FF5E5E;
+  --color-pink-light: #FFB0B0;
+  --color-lavender: #C8B8E8;
+  --color-lavender-light: #DDD0F0;
+  --color-light-blue: #B8E0ED;
+  --color-light-blue-alt: #A8D8E8;
+  --color-pink-band: #F5C8D8;
+  --color-purple-badge: #C8B8E8;
+  --color-gray-dark: #333333;
+  --color-gray: #666666;
+  --color-gray-light: #999999;
+
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  --radius-card: 20px;
+  --radius-pill: 50px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+
+  --transition-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-black);
+  background-color: var(--color-cream);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ---------- Utility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   LANDING PAGE
+   ============================================ */
+
+.landing-page {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+  line-height: 1.15;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  width: 80%;
+  white-space: normal;
+}
+
+.landing-cards {
+  display: flex;
+  gap: 2rem;
+  z-index: 2;
+  perspective: 1200px;
+}
+
+.landing-card {
+  width: 340px;
+  height: 480px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s var(--transition-smooth), box-shadow 0.6s var(--transition-smooth);
+  transform-style: preserve-3d;
+}
+
+.landing-card:first-child {
+  transform: rotate(-4deg);
+}
+
+.landing-card:last-child {
+  transform: rotate(4deg);
+}
+
+.landing-card:hover {
+  transform: rotate(0deg) scale(1.04) translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+.landing-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--transition-smooth);
+}
+
+.landing-card:hover .landing-card-bg {
+  transform: scale(1.08);
+}
+
+.landing-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+  z-index: 1;
+}
+
+.landing-card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.landing-card-title {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.landing-card-label {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* ============================================
+   PARIS PAGE — NAVBAR
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2.5rem;
+  z-index: 1000;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(242, 235, 227, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menu-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 12px;
+  transition: transform 0.3s var(--transition-smooth), background 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.menu-btn:hover {
+  transform: scale(1.08);
+}
+
+.menu-btn .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-black);
+}
+
+.menu-label {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-white);
+  transition: color 0.4s ease;
+}
+
+.navbar.scrolled .menu-label {
+  color: var(--color-black);
+}
+
+.navbar-logo {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.navbar.scrolled .navbar-logo {
+  color: var(--color-black);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--color-white);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-black);
+  transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.cta-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.cta-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.75rem;
+  color: var(--color-white);
+  font-size: 1rem;
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.cta-btn:hover .cta-arrow {
+  transform: rotate(45deg);
+}
+
+/* ============================================
+   PARIS PAGE — HERO
+   ============================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+}
+
+.hero-video {
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.2) 0%,
+    rgba(0,0,0,0.05) 40%,
+    rgba(0,0,0,0.3) 100%);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 4rem 4rem;
+}
+
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.0;
+  max-width: 55%;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline .word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hero-headline .word span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.8s var(--transition-smooth);
+}
+
+.hero-headline.revealed .word span {
+  transform: translateY(0);
+}
+
+.hero-right {
+  max-width: 380px;
+  text-align: right;
+}
+
+.hero-subtext {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-white);
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--color-white);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 0.6rem 0.6rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-black);
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.hero-cta:hover {
+  transform: scale(1.05);
+}
+
+.hero-cta .cta-arrow {
+  background: var(--color-lavender);
+}
+
+/* ============================================
+   PARIS PAGE — UNLOCK SECTION
+   ============================================ */
+
+.unlock-section {
+  background: var(--color-cream);
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Cursor Image Trail Layer --- */
+.cursor-trail-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.unlock-content-layer {
+  position: relative;
+  z-index: 2;
+}
+
+.cursor-trail-img {
+  position: absolute;
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: scale(0.6);
+  animation: cursorTrailIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.cursor-trail-img.fading-out {
+  animation: cursorTrailOut 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes cursorTrailIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes cursorTrailOut {
+  0% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.75) translateY(8px);
+  }
+}
+
+/* Disable trail effect for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-trail-layer {
+    display: none;
+  }
+}
+
+/* Disable trail on mobile/tablet */
+@media (max-width: 1024px) {
+  .cursor-trail-layer {
+    display: none;
+  }
+}
+
+.unlock-badge {
+  display: inline-block;
+  background: var(--color-lavender-light);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin-bottom: 2rem;
+}
+
+.unlock-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--color-black);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  letter-spacing: -0.02em;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.5;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator svg {
+  width: 24px;
+  height: 36px;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ============================================
+   PARIS PAGE — FLOATING COLLAGE (Editorial)
+   Matches parisbyemily.com reference layout:
+   1 large hero + 3 small accent cards + 2 stars
+   ============================================ */
+
+.collage-section {
+  background: var(--color-cream);
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  overflow: visible;
+}
+
+.collage-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 680px;
+}
+
+/* ---- Decorative Stars ---- */
+.collage-star {
+  position: absolute;
+  z-index: 10;
+  will-change: transform;
+}
+
+/* Large 8-pointed asterisk — top-left */
+.collage-star--large {
+  width: 100px;
+  height: 100px;
+  top: -2%;
+  left: 4%;
+}
+
+/* Small 4-pointed diamond — right of hero */
+.collage-star--small {
+  width: 36px;
+  height: 36px;
+  bottom: 28%;
+  right: 10%;
+}
+
+.collage-star svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Shared Card Styles ---- */
+.collage-card {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  will-change: transform;
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.collage-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.collage-card:hover {
+  box-shadow:
+    0 16px 50px rgba(0, 0, 0, 0.12),
+    0 4px 14px rgba(0, 0, 0, 0.06);
+  transform: scale(1.015);
+}
+
+/* ---- Hero Card — Large central image ---- */
+.collage-card--hero {
+  width: 62%;
+  height: 520px;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  border-radius: 24px;
+}
+
+.collage-card--hero:hover {
+  transform: translateX(-50%) scale(1.01);
+}
+
+/* ---- Accent 1: Bottom-left — overlaps hero bottom-left corner ---- */
+.collage-card--accent-1 {
+  width: 200px;
+  height: 200px;
+  bottom: 0%;
+  left: 6%;
+  z-index: 3;
+  border-radius: 16px;
+}
+
+/* ---- Accent 2: Right — overlaps hero right edge ---- */
+.collage-card--accent-2 {
+  width: 180px;
+  height: 200px;
+  bottom: 12%;
+  right: 4%;
+  z-index: 3;
+  border-radius: 16px;
+}
+
+/* ---- Accent 3: Bottom-center — small, below hero ---- */
+.collage-card--accent-3 {
+  width: 160px;
+  height: 140px;
+  bottom: -4%;
+  left: 50%;
+  transform: translateX(-10%);
+  z-index: 4;
+  border-radius: 14px;
+}
+
+.collage-card--accent-3:hover {
+  transform: translateX(-10%) scale(1.02);
+}
+
+/* ---- Idle Floating Animations ---- */
+@keyframes collageFloatAccent1 {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes collageFloatAccent2 {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.collage-card--accent-1[data-float="true"] {
+  animation: collageFloatAccent1 6s ease-in-out infinite;
+}
+
+.collage-card--accent-2[data-float="true"] {
+  animation: collageFloatAccent2 7s ease-in-out infinite 0.4s;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .collage-card,
+  .collage-star {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+/* ---- Tablet (≤1024px) ---- */
+@media (max-width: 1024px) {
+  .collage-section {
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .collage-container {
+    height: 520px;
+    max-width: 700px;
+  }
+
+  .collage-card {
+    animation: none !important;
+  }
+
+  .collage-card--hero {
+    width: 72%;
+    height: 400px;
+  }
+
+  .collage-card--accent-1 {
+    width: 160px;
+    height: 160px;
+    bottom: 2%;
+    left: 2%;
+  }
+
+  .collage-card--accent-2 {
+    width: 150px;
+    height: 165px;
+    bottom: 10%;
+    right: 2%;
+  }
+
+  .collage-card--accent-3 {
+    width: 130px;
+    height: 115px;
+    bottom: -2%;
+  }
+
+  .collage-star--large {
+    width: 70px;
+    height: 70px;
+    top: 0%;
+    left: 2%;
+  }
+
+  .collage-star--small {
+    width: 28px;
+    height: 28px;
+    bottom: 30%;
+    right: 6%;
+  }
+}
+
+/* ---- Mobile (≤768px) ---- */
+@media (max-width: 768px) {
+  .collage-section {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .collage-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .collage-card {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 400px;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    border-radius: 16px;
+  }
+
+  .collage-card img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .collage-card--hero img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .collage-card--accent-3 {
+    display: none;
+  }
+
+  .collage-star {
+    display: none;
+  }
+}
+
+/* ============================================
+   PARIS PAGE — DISCOVER MARQUEE
+   ============================================ */
+
+.marquee-section {
+  background: var(--color-cream);
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 800;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+}
+
+.marquee-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid rgba(200,184,232,0.4);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.marquee-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================
+   PARIS PAGE — EXPERIENCE HIGHLIGHT CARDS
+   ============================================ */
+
+.experiences-section {
+  background: var(--color-cream);
+  padding: 2rem 4rem 4rem;
+}
+
+.experience-card {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: transform 0.5s var(--transition-smooth);
+}
+
+.experience-card:hover {
+  transform: scale(1.01);
+}
+
+.experience-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--transition-smooth);
+}
+
+.experience-card:hover .experience-card-bg {
+  transform: scale(1.06);
+}
+
+.experience-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.55) 100%);
+}
+
+.experience-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.experience-card-info {
+  flex: 1;
+}
+
+.experience-tag {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin-bottom: 1rem;
+}
+
+.experience-tag.tours {
+  background: var(--color-pink-light);
+}
+
+.experience-tag.workshops {
+  background: var(--color-light-blue);
+}
+
+.experience-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  max-width: 500px;
+  letter-spacing: -0.01em;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.experience-meta-item {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.experience-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: var(--color-white);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-black);
+  transition: transform 0.3s var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.experience-card-cta:hover {
+  transform: scale(1.05);
+}
+
+.experience-card-cta .cta-arrow {
+  width: 32px;
+  height: 32px;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   PARIS PAGE — TILTED BANDS
+   ============================================ */
+
+.bands-section {
+  background: var(--color-cream);
+  padding: 4rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.band {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  white-space: nowrap;
+  transform: rotate(-5deg);
+  margin: -1rem 0;
+  overflow: hidden;
+}
+
+.band-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+}
+
+.band:nth-child(1) { background: var(--color-light-blue); }
+.band:nth-child(2) { background: var(--color-lavender); }
+.band:nth-child(3) { background: var(--color-pink-band); }
+
+.band:nth-child(1) .band-track { animation: bandScrollLeft 20s linear infinite; }
+.band:nth-child(2) .band-track { animation: bandScrollRight 22s linear infinite; }
+.band:nth-child(3) .band-track { animation: bandScrollLeft 18s linear infinite; }
+
+.band-text {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.band-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--color-cream);
+  border: 3px solid rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+@keyframes bandScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes bandScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ============================================
+   PARIS PAGE — EXPERIENCE LIST
+   ============================================ */
+
+.experience-list-section {
+  background: var(--color-cream);
+  padding: 4rem 4rem 6rem;
+}
+
+.experience-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  transition: background 0.4s ease, border-radius 0.4s ease, padding 0.4s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.experience-list-row:first-child {
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+.experience-list-row:hover {
+  background: var(--color-cream-dark);
+  border-radius: var(--radius-md);
+  padding: 2rem 2.5rem;
+}
+
+.experience-list-row.exp-list-row--highlight {
+  background: var(--color-lavender-light);
+  border-radius: var(--radius-md);
+  border-bottom: none;
+  margin-top: 0.5rem;
+}
+
+.experience-list-row.exp-list-row--highlight:hover {
+  background: var(--color-lavender);
+}
+
+.exp-list-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.exp-list-thumb {
+  width: 0;
+  height: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  opacity: 0;
+  transition: width 0.4s var(--transition-smooth), height 0.4s var(--transition-smooth), opacity 0.4s ease;
+  flex-shrink: 0;
+}
+
+.experience-list-row:hover .exp-list-thumb {
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+}
+
+.exp-list-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.exp-list-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exp-list-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.experience-list-row:hover .exp-list-title {
+  transform: translateX(4px);
+}
+
+.exp-list-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exp-list-tag {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.experience-list-row:hover .exp-list-tag {
+  border-color: rgba(10, 10, 10, 0.35);
+}
+
+.exp-list-arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(10, 10, 10, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s var(--transition-smooth);
+  color: var(--color-black);
+}
+
+.experience-list-row:hover .exp-list-arrow {
+  background: var(--color-black);
+  border-color: var(--color-black);
+  color: var(--color-white);
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* ============================================
+   PARIS PAGE — WALL OF LOVE
+   ============================================ */
+
+.wall-section {
+  background: var(--color-cream);
+  padding: 6rem 2rem;
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
+.wall-bg-text {
+  font-family: var(--font-serif);
+  font-size: clamp(6rem, 18vw, 16rem);
+  font-weight: 900;
+  color: var(--color-black);
+  text-align: center;
+  line-height: 0.9;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.wall-cards-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.wall-card {
+  position: absolute;
+  width: 280px;
+  background: var(--color-lavender-light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s ease;
+  z-index: 3;
+}
+
+.wall-card:active {
+  cursor: grabbing;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+
+.wall-card-drag-label {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-white);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 4;
+}
+
+.wall-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.wall-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wall-card-brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.wall-card-info {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-black);
+  line-height: 1.4;
+}
+
+.wall-card-stars {
+  color: #FFD700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.wall-card-name {
+  font-weight: 600;
+}
+
+.wall-card-experience {
+  font-weight: 400;
+  opacity: 0.7;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* ============================================
+   PARIS PAGE — CREATIVE FOOTER TEXT
+   ============================================ */
+
+.footer-creative {
+  background: var(--color-cream);
+  padding: 6rem 4rem;
+  text-align: center;
+}
+
+.footer-creative-text {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-black);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-creative-text .highlight {
+  background: var(--color-light-blue);
+  padding: 0.1em 0.3em;
+  border-radius: 6px;
+}
+
+.footer-creative-text .inline-icon {
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0 0.25em;
+  border: 2px solid var(--color-lavender);
+}
+
+.footer-creative-text .inline-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-creative-cta {
+  margin-top: 3rem;
+}
+
+/* ============================================
+   PARIS PAGE — FOOTER BRAND
+   ============================================ */
+
+.footer-brand {
+  background: var(--color-cream);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+
+.footer-brand-text {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 900;
+  color: var(--color-black);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   PARIS PAGE — FOOTER BOTTOM
+   ============================================ */
+
+.footer-bottom {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 3rem 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col-title {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1.25rem;
+}
+
+.footer-col a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: var(--color-white);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 2rem 0 1.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-bottom-bar span {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-netflix {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-privacy-link {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-privacy-link:hover {
+  color: var(--color-white);
+}
+
+/* ============================================
+   FULL-SCREEN MENU OVERLAY
+   ============================================ */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-black);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  overflow-y: auto;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-overlay-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.menu-overlay-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Menu Overlay Inner Split Layout */
+.menu-overlay-inner {
+  display: flex;
+  flex: 1;
+  padding: 5rem 4rem 2rem;
+  gap: 4rem;
+}
+
+.menu-overlay-left {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.menu-overlay-cities-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu-cities-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.menu-cities-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.menu-city-link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+}
+
+.menu-city-link.active,
+.menu-city-link:hover {
+  color: var(--color-white);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.menu-overlay-discover-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.menu-overlay-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.menu-tile {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform 0.3s var(--transition-smooth), opacity 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.menu-overlay.active .menu-tile {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-overlay.active .menu-tile:nth-child(1) { transition-delay: 0.15s; }
+.menu-overlay.active .menu-tile:nth-child(2) { transition-delay: 0.2s; }
+.menu-overlay.active .menu-tile:nth-child(3) { transition-delay: 0.25s; }
+.menu-overlay.active .menu-tile:nth-child(4) { transition-delay: 0.3s; }
+
+.menu-tile img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  transition: transform 0.4s var(--transition-smooth);
+}
+
+.menu-tile:hover img {
+  transform: scale(1.06);
+}
+
+.menu-tile-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  padding: 0.5rem 0;
+  line-height: 1.3;
+}
+
+/* Right side nav links */
+.menu-overlay-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.menu-overlay-link {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s ease, transform 0.4s var(--transition-smooth), color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-overlay.active .menu-overlay-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-overlay.active .menu-overlay-link:nth-child(1) { transition-delay: 0.1s; }
+.menu-overlay.active .menu-overlay-link:nth-child(2) { transition-delay: 0.15s; }
+.menu-overlay.active .menu-overlay-link:nth-child(3) { transition-delay: 0.2s; }
+.menu-overlay.active .menu-overlay-link:nth-child(4) { transition-delay: 0.25s; }
+
+.menu-overlay-link:hover {
+  color: var(--color-pink);
+}
+
+.menu-link-text {
+  display: block;
+}
+
+.menu-link-small {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Overlay Footer */
+.menu-overlay-footer {
+  padding: 1.5rem 4rem;
+  display: flex;
+  gap: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.menu-footer-link {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.3s ease;
+}
+
+.menu-footer-link:hover {
+  color: var(--color-white);
+}
+
+/* ============================================
+   COOKIE BANNER
+   ============================================ */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  z-index: 8000;
+  transition: transform 0.6s var(--transition-smooth);
+  max-width: 90vw;
+}
+
+.cookie-banner.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.cookie-text {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-black);
+}
+
+.cookie-btns {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.cookie-btn:hover {
+  transform: scale(1.05);
+}
+
+.cookie-btn--accept {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.cookie-btn--decline {
+  background: transparent;
+  color: var(--color-black);
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   ANIMATIONS & SCROLL REVEALS
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 2rem 3rem;
+  }
+
+  .hero-headline {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    text-align: left;
+  }
+
+  .experience-card {
+    height: 450px;
+  }
+
+  .collage-container {
+    height: 500px;
+  }
+
+  .collage-img--main {
+    width: 70%;
+    height: 380px;
+    left: 15%;
+  }
+
+  .collage-img--left {
+    width: 180px;
+    height: 220px;
+  }
+
+  .collage-img--right {
+    width: 220px;
+    height: 180px;
+  }
+
+  .footer-creative {
+    padding: 4rem 2rem;
+  }
+
+  .experience-list-section {
+    padding: 3rem 2rem 4rem;
+  }
+
+  .menu-overlay-inner {
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 2rem;
+  }
+
+  .menu-overlay-left {
+    flex: none;
+  }
+
+  .menu-overlay-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-cards {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .landing-card {
+    width: 280px;
+    height: 380px;
+  }
+
+  .landing-card:first-child,
+  .landing-card:last-child {
+    transform: rotate(0);
+  }
+
+  .navbar {
+    padding: 1rem 1.25rem;
+  }
+
+  .menu-label {
+    display: none;
+  }
+
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero-content {
+    padding: 0 1.5rem 2.5rem;
+  }
+
+  .hero-subtext {
+    font-size: 1.2rem;
+  }
+
+  .unlock-section {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .collage-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .collage-container {
+    height: 400px;
+  }
+
+  .collage-img--main {
+    width: 85%;
+    height: 300px;
+    left: 7.5%;
+  }
+
+  .collage-img--left {
+    width: 140px;
+    height: 180px;
+  }
+
+  .collage-img--right {
+    width: 160px;
+    height: 140px;
+  }
+
+  .experiences-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .experience-card {
+    height: 400px;
+  }
+
+  .experience-card-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .experience-list-section {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .exp-list-title {
+    font-size: 1.3rem;
+  }
+
+  .exp-list-tags {
+    gap: 0.35rem;
+  }
+
+  .exp-list-tag {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .exp-list-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .wall-bg-text {
+    font-size: clamp(4rem, 15vw, 8rem);
+  }
+
+  .wall-card {
+    width: 220px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .menu-overlay-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-overlay-footer {
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-card {
+    width: 240px;
+    height: 340px;
+  }
+
+  .landing-card-title {
+    font-size: 3rem;
+  }
+
+  .cta-btn span {
+    display: none;
+  }
+
+  .experience-card {
+    height: 350px;
+  }
+
+  .experience-card-title {
+    font-size: 1.8rem;
+  }
+
+  .experience-list-row {
+    padding: 1.25rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .experience-list-row:hover {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .exp-list-arrow {
+    align-self: flex-end;
+  }
+}
