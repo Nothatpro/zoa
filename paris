@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emily in Paris Experiences — Walking tours, croissant-making workshops, macaron classes, and champagne Seine cruises. Live the Paris you've only seen on screen. Book official tours from €48.">
+  <title>Emily in Paris Experiences | Tours & Workshops — Paris By Emily</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== FULL-SCREEN MENU OVERLAY ========== -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button class="menu-overlay-close" id="menu-close" aria-label="Close menu">✕</button>
+    <div class="menu-overlay-inner">
+      <!-- Left Side: Discover Cities + Image Tiles -->
+      <div class="menu-overlay-left">
+        <div class="menu-overlay-cities-header">
+          <span class="menu-cities-label">Discover Cities</span>
+          <div class="menu-cities-links">
+            <a href="paris.html" class="menu-city-link active">Paris</a>
+            <a href="#" class="menu-city-link">Rome</a>
+          </div>
+        </div>
+        <h3 class="menu-overlay-discover-title">Discover Paris</h3>
+        <div class="menu-overlay-tiles">
+          <a href="#" class="menu-tile">
+            <img src="https://images.unsplash.com/photo-1431274172761-fca41d930114?w=400&q=80" alt="Walking Tour">
+            <span class="menu-tile-label">Walk in the footsteps of Emily</span>
+          </a>
+          <a href="#" class="menu-tile">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=400&q=80" alt="Croissant Workshop">
+            <span class="menu-tile-label">Croissant-Making Workshop</span>
+          </a>
+          <a href="#" class="menu-tile">
+            <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=400&q=80" alt="Macaron Workshop">
+            <span class="menu-tile-label">Macaron-Making Workshop</span>
+          </a>
+          <a href="#" class="menu-tile">
+            <img src="https://images.unsplash.com/photo-1543349689-9a4d426bee8e?w=400&q=80" alt="Seine Cruise">
+            <span class="menu-tile-label">Champagne Seine Cruise</span>
+          </a>
+        </div>
+      </div>
+      <!-- Right Side: Navigation Links -->
+      <nav class="menu-overlay-right">
+        <a href="index.html" class="menu-overlay-link">
+          <span class="menu-link-text">Home</span>
+          <span class="menu-link-small">Home</span>
+        </a>
+        <a href="#experiences" class="menu-overlay-link">
+          <span class="menu-link-text">Experiences</span>
+          <span class="menu-link-small">Experiences</span>
+        </a>
+        <a href="#" class="menu-overlay-link">
+          <span class="menu-link-text">Privé</span>
+          <span class="menu-link-small">Prive</span>
+        </a>
+        <a href="#" class="menu-overlay-link">
+          <span class="menu-link-text">Gift Cards</span>
+          <span class="menu-link-small">Gift Cards</span>
+        </a>
+      </nav>
+    </div>
+    <!-- Overlay Footer -->
+    <div class="menu-overlay-footer">
+      <a href="#" class="menu-footer-link">Blog</a>
+      <a href="#" class="menu-footer-link">Contact</a>
+      <a href="#" class="menu-footer-link">Privacy Policy</a>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-left">
+      <button class="menu-btn" id="menu-open" aria-label="Open menu">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </button>
+      <span class="menu-label">Menu</span>
+    </div>
+    <a href="index.html" class="navbar-logo">Paris By Emily</a>
+    <div class="navbar-right">
+      <a href="#experiences" class="cta-btn">
+        <span>View Experiences</span>
+        <span class="cta-arrow">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== SECTION 1: HERO (VIDEO) ========== -->
+  <section class="hero" id="hero">
+    <video
+      class="hero-bg hero-video"
+      autoplay muted loop playsinline
+      poster="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1600&q=80"
+    >
+      <source src="https://videos.pexels.com/video-files/2519660/2519660-uhd_2560_1440_24fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-headline" id="hero-headline">
+        Live the Paris you've only seen on screen
+      </h1>
+      <div class="hero-right">
+        <p class="hero-subtext">
+          Created for people who dream of Paris— and want to live it, not just visit
+        </p>
+        <a href="#experiences" class="hero-cta">
+          <span>View Experiences</span>
+          <span class="cta-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2: UNLOCK EXPERIENCES ========== -->
+  <section class="unlock-section" id="unlock">
+    <!-- Cursor Image Trail Layer (behind content) -->
+    <div class="cursor-trail-layer" id="cursor-trail-layer" aria-hidden="true"></div>
+    <div class="reveal unlock-content-layer">
+      <span class="unlock-badge">Explore At Your Own Pace</span>
+    </div>
+    <h2 class="unlock-heading reveal reveal-delay-1 unlock-content-layer">
+      Unlock The Emily in Paris Experiences
+    </h2>
+    <div class="scroll-indicator reveal reveal-delay-2 unlock-content-layer">
+      <svg viewBox="0 0 24 36" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="1" y="1" width="22" height="34" rx="11" />
+        <circle cx="12" cy="10" r="3" fill="currentColor">
+          <animate attributeName="cy" values="10;20;10" dur="2s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3: FLOATING IMAGE COLLAGE ========== -->
+  <section class="collage-section" id="collage">
+    <div class="collage-container">
+
+      <!-- Decorative Stars -->
+      <div class="collage-star collage-star--large" data-parallax-speed="0.08" data-parallax-dir="up">
+        <svg viewBox="0 0 80 80" fill="none">
+          <line x1="40" y1="0" x2="40" y2="80" stroke="#0a0a0a" stroke-width="2.5"/>
+          <line x1="0" y1="40" x2="80" y2="40" stroke="#0a0a0a" stroke-width="2.5"/>
+          <line x1="11.7" y1="11.7" x2="68.3" y2="68.3" stroke="#0a0a0a" stroke-width="2.5"/>
+          <line x1="68.3" y1="11.7" x2="11.7" y2="68.3" stroke="#0a0a0a" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <div class="collage-star collage-star--small" data-parallax-speed="0.15" data-parallax-dir="down">
+        <svg viewBox="0 0 60 60" fill="none">
+          <path d="M30 0L33.5 26.5L60 30L33.5 33.5L30 60L26.5 33.5L0 30L26.5 26.5L30 0Z" fill="#0a0a0a"/>
+        </svg>
+      </div>
+
+      <!-- ✦ COLLAGE IMAGE URLS — Replace src values with your own images ✦ -->
+
+      <!-- Main Hero Image — Large, central, dominant -->
+      <div class="collage-card collage-card--hero" data-parallax-speed="0.1" data-parallax-dir="up">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80"
+             alt="Woman posing near Eiffel Tower in Paris"
+             loading="lazy">
+      </div>
+
+      <!-- Accent 1: Bottom-left — Small landscape, overlaps hero corner -->
+      <div class="collage-card collage-card--accent-1" data-parallax-speed="0.25" data-parallax-dir="up" data-float="true">
+        <img src="https://images.unsplash.com/photo-1431274172761-fca41d930114?w=400&q=80"
+             alt="Friends walking in Paris streets"
+             loading="lazy">
+      </div>
+
+      <!-- Accent 2: Right — Small portrait, overlaps hero right edge -->
+      <div class="collage-card collage-card--accent-2" data-parallax-speed="0.2" data-parallax-dir="down" data-float="true">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80"
+             alt="Croissant workshop at Paris By Emily"
+             loading="lazy">
+      </div>
+
+      <!-- Accent 3: Bottom-center-right — Tiny square, overlaps below hero -->
+      <div class="collage-card collage-card--accent-3" data-parallax-speed="0.3" data-parallax-dir="down">
+        <img src="https://images.unsplash.com/photo-1550340499-a6c60fc8287c?w=300&q=80"
+             alt="Red Parisian café terrace with friends"
+             loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SECTION 4: DISCOVER MARQUEE ========== -->
+  <section class="marquee-section" id="marquee">
+    <div class="marquee-track" id="marquee-track">
+      <div class="marquee-item">
+        <span class="marquee-text">Discover experiences</span>
+        <div class="marquee-icon">
+          <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?w=150&q=80" alt="Eiffel Tower">
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-text">Discover experiences</span>
+        <div class="marquee-icon">
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=150&q=80" alt="Croissant">
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-text">Discover experiences</span>
+        <div class="marquee-icon">
+          <img src="https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?w=150&q=80" alt="Macaron">
+        </div>
+      </div>
+      <!-- Duplicate for seamless scroll -->
+      <div class="marquee-item">
+        <span class="marquee-text">Discover experiences</span>
+        <div class="marquee-icon">
+          <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?w=150&q=80" alt="Eiffel Tower">
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-text">Discover experiences</span>
+        <div class="marquee-icon">
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=150&q=80" alt="Croissant">
+        </div>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-text">Discover experiences</span>
+        <div class="marquee-icon">
+          <img src="https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?w=150&q=80" alt="Macaron">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 5: EXPERIENCE HIGHLIGHT CARDS ========== -->
+  <section class="experiences-section" id="experiences">
+
+    <!-- Card 1: Walking Tour -->
+    <article class="experience-card reveal" id="exp-walking-tour">
+      <img class="experience-card-bg"
+           src="https://images.unsplash.com/photo-1431274172761-fca41d930114?w=1200&q=80"
+           alt="Classic Parisian Haussmann buildings" loading="lazy">
+      <div class="experience-card-overlay"></div>
+      <div class="experience-card-content">
+        <div class="experience-card-info">
+          <span class="experience-tag tours">Tours</span>
+          <h3 class="experience-card-title">Walk in the footsteps of Emily</h3>
+          <div class="experience-meta">
+            <span class="experience-meta-item">2.5 Hours</span>
+            <span class="experience-meta-item">From 52€</span>
+          </div>
+        </div>
+        <a href="#" class="experience-card-cta">
+          <span>Explore More</span>
+          <span class="cta-arrow">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 2: Croissant Workshop -->
+    <article class="experience-card reveal" id="exp-croissant">
+      <img class="experience-card-bg"
+           src="https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=1200&q=80"
+           alt="Croissant making workshop" loading="lazy">
+      <div class="experience-card-overlay"></div>
+      <div class="experience-card-content">
+        <div class="experience-card-info">
+          <span class="experience-tag workshops">Workshops</span>
+          <h3 class="experience-card-title">Croissant-Making Workshop</h3>
+          <div class="experience-meta">
+            <span class="experience-meta-item">2.5 Hours</span>
+            <span class="experience-meta-item">From 131€</span>
+          </div>
+        </div>
+        <a href="#" class="experience-card-cta">
+          <span>Explore More</span>
+          <span class="cta-arrow">↗</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 3: Macaron Workshop -->
+    <article class="experience-card reveal" id="exp-macaron">
+      <img class="experience-card-bg"
+           src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=1200&q=80"
+           alt="Colorful French macarons" loading="lazy">
+      <div class="experience-card-overlay"></div>
+      <div class="experience-card-content">
+        <div class="experience-card-info">
+          <span class="experience-tag workshops">Workshops</span>
+          <h3 class="experience-card-title">Macaron-Making Workshop</h3>
+          <div class="experience-meta">
+            <span class="experience-meta-item">2.5 Hours</span>
+            <span class="experience-meta-item">From 131€</span>
+          </div>
+        </div>
+        <a href="#" class="experience-card-cta">
+          <span>Explore More</span>
+          <span class="cta-arrow">↗</span>
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ========== SECTION 6: TILTED SCROLLING BANDS ========== -->
+  <section class="bands-section" id="bands">
+    <div class="band">
+      <div class="band-track">
+        <span class="band-text">Food Tour</span>
+        <span class="band-icon">🥐</span>
+        <span class="band-text">Walking Tour</span>
+        <span class="band-icon">🗼</span>
+        <span class="band-text">Wine Tasting</span>
+        <span class="band-icon">🍷</span>
+        <span class="band-text">Food Tour</span>
+        <span class="band-icon">🥐</span>
+        <span class="band-text">Walking Tour</span>
+        <span class="band-icon">🗼</span>
+        <span class="band-text">Wine Tasting</span>
+        <span class="band-icon">🍷</span>
+        <span class="band-text">Food Tour</span>
+        <span class="band-icon">🥐</span>
+        <span class="band-text">Walking Tour</span>
+        <span class="band-icon">🗼</span>
+      </div>
+    </div>
+    <div class="band">
+      <div class="band-track">
+        <span class="band-text">Cheese</span>
+        <span class="band-icon">🧀</span>
+        <span class="band-text">Macaron</span>
+        <span class="band-icon">🍬</span>
+        <span class="band-text">Croissant</span>
+        <span class="band-icon">🥖</span>
+        <span class="band-text">Cheese</span>
+        <span class="band-icon">🧀</span>
+        <span class="band-text">Macaron</span>
+        <span class="band-icon">🍬</span>
+        <span class="band-text">Croissant</span>
+        <span class="band-icon">🥖</span>
+        <span class="band-text">Cheese</span>
+        <span class="band-icon">🧀</span>
+        <span class="band-text">Macaron</span>
+        <span class="band-icon">🍬</span>
+      </div>
+    </div>
+    <div class="band">
+      <div class="band-track">
+        <span class="band-text">Seine Cruise</span>
+        <span class="band-icon">🚢</span>
+        <span class="band-text">Champagne</span>
+        <span class="band-icon">🥂</span>
+        <span class="band-text">Pastry Class</span>
+        <span class="band-icon">🎂</span>
+        <span class="band-text">Seine Cruise</span>
+        <span class="band-icon">🚢</span>
+        <span class="band-text">Champagne</span>
+        <span class="band-icon">🥂</span>
+        <span class="band-text">Pastry Class</span>
+        <span class="band-icon">🎂</span>
+        <span class="band-text">Seine Cruise</span>
+        <span class="band-icon">🚢</span>
+        <span class="band-text">Champagne</span>
+        <span class="band-icon">🥂</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7: EXPERIENCE LIST ========== -->
+  <section class="experience-list-section" id="experience-list">
+    <div class="experience-list-container">
+      <!-- Row 1 -->
+      <a href="#" class="experience-list-row" id="exp-list-walking">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1431274172761-fca41d930114?w=200&q=80" alt="Walking Tour">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Walk in the footsteps of Emily</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Tours</span>
+              <span class="exp-list-tag">2.5 Hours</span>
+              <span class="exp-list-tag">From 52 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Row 2 -->
+      <a href="#" class="experience-list-row" id="exp-list-croissant">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=200&q=80" alt="Croissant Workshop">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Croissant-Making Workshop</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Workshops</span>
+              <span class="exp-list-tag">2.5 Hours</span>
+              <span class="exp-list-tag">From 131 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Row 3 -->
+      <a href="#" class="experience-list-row" id="exp-list-macaron">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=200&q=80" alt="Macaron Workshop">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Macaron-Making Workshop</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Workshops</span>
+              <span class="exp-list-tag">2.5 Hours</span>
+              <span class="exp-list-tag">From 131 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Row 4 -->
+      <a href="#" class="experience-list-row" id="exp-list-cruise">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1543349689-9a4d426bee8e?w=200&q=80" alt="Seine Cruise">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Champagne Seine Cruise</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Boat Cruise</span>
+              <span class="exp-list-tag">1.5 Hours</span>
+              <span class="exp-list-tag">From 115 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Row 5 -->
+      <a href="#" class="experience-list-row" id="exp-list-food">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80" alt="Food Tour">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Food Tour</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Tours</span>
+              <span class="exp-list-tag">2.5 Hours</span>
+              <span class="exp-list-tag">From 122 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Row 6 -->
+      <a href="#" class="experience-list-row" id="exp-list-montmartre">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1550340499-a6c60fc8287c?w=200&q=80" alt="Montmartre Tour">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Montmartre Tour</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Tours</span>
+              <span class="exp-list-tag">2 Hours</span>
+              <span class="exp-list-tag">From 50 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Row 7 -->
+      <a href="#" class="experience-list-row exp-list-row--highlight" id="exp-list-wine">
+        <div class="exp-list-left">
+          <div class="exp-list-thumb">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&q=80" alt="Wine Tasting">
+          </div>
+          <div class="exp-list-info">
+            <h3 class="exp-list-title">Wine, Cheese & Butter Tasting</h3>
+            <div class="exp-list-tags">
+              <span class="exp-list-tag">Workshops</span>
+              <span class="exp-list-tag">2 Hours</span>
+              <span class="exp-list-tag">From 118 €</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-list-arrow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 8: WALL OF LOVE ========== -->
+  <section class="wall-section" id="wall-of-love">
+    <div class="wall-bg-text">
+      WALL<br>OF<br>LOVE
+    </div>
+    <div class="wall-cards-container" id="wall-cards-container">
+      <!-- Card 1 -->
+      <div class="wall-card" id="wall-card-1" style="top: 18%; left: 32%; transform: rotate(-5deg);">
+        <span class="wall-card-drag-label">Drag Me</span>
+        <div class="wall-card-image">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Wine tasting experience">
+          <span class="wall-card-brand">Paris By Emily</span>
+        </div>
+        <div class="wall-card-info">
+          <div class="wall-card-stars">★★★★★</div>
+          <div class="wall-card-name">Danielle, Netherlands</div>
+          <div class="wall-card-experience">It was such a joyful and affirming experience. We can't recommend it highly enough!</div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="wall-card" id="wall-card-2" style="top: 32%; left: 55%; transform: rotate(3deg);">
+        <span class="wall-card-drag-label">Drag Me</span>
+        <div class="wall-card-image">
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80" alt="Fresh croissants">
+          <span class="wall-card-brand">Paris By Emily</span>
+        </div>
+        <div class="wall-card-info">
+          <div class="wall-card-stars">★★★★★</div>
+          <div class="wall-card-name">Sarah, Australia</div>
+          <div class="wall-card-experience">Croissant-Making Workshop</div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="wall-card" id="wall-card-3" style="top: 12%; left: 62%; transform: rotate(-8deg);">
+        <span class="wall-card-drag-label">Drag Me</span>
+        <div class="wall-card-image">
+          <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?w=400&q=80" alt="Eiffel Tower view">
+          <span class="wall-card-brand">Paris By Emily</span>
+        </div>
+        <div class="wall-card-info">
+          <div class="wall-card-stars">★★★★★</div>
+          <div class="wall-card-name">Marco, Italy</div>
+          <div class="wall-card-experience">Walking Tour of Emily's Paris</div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="wall-card" id="wall-card-4" style="top: 45%; left: 22%; transform: rotate(6deg);">
+        <span class="wall-card-drag-label">Drag Me</span>
+        <div class="wall-card-image">
+          <img src="https://images.unsplash.com/photo-1471943311424-646960669fbc?w=400&q=80" alt="Colorful macarons">
+          <span class="wall-card-brand">Paris By Emily</span>
+        </div>
+        <div class="wall-card-info">
+          <div class="wall-card-stars">★★★★★</div>
+          <div class="wall-card-name">Yuki, Japan</div>
+          <div class="wall-card-experience">Macaron-Making Workshop</div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="wall-card" id="wall-card-5" style="top: 55%; left: 48%; transform: rotate(-3deg);">
+        <span class="wall-card-drag-label">Drag Me</span>
+        <div class="wall-card-image">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&q=80" alt="Seine river view">
+          <span class="wall-card-brand">Paris By Emily</span>
+        </div>
+        <div class="wall-card-info">
+          <div class="wall-card-stars">★★★★★</div>
+          <div class="wall-card-name">Elena, Spain</div>
+          <div class="wall-card-experience">Champagne Seine Cruise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 9: CREATIVE FOOTER TEXT ========== -->
+  <section class="footer-creative" id="footer-creative">
+    <p class="footer-creative-text reveal">
+      From
+      <span class="inline-icon"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=100&q=80" alt="croissant"></span>
+      <span class="highlight">croissant-making</span> workshops to
+      <span class="inline-icon"><img src="https://images.unsplash.com/photo-1543349689-9a4d426bee8e?w=100&q=80" alt="Seine"></span>
+      <span class="highlight">champagne cruises</span> on the Seine— every experience is designed to make you
+      <em>feel</em> like Emily in Paris.
+    </p>
+    <div class="footer-creative-cta reveal reveal-delay-1">
+      <a href="#experiences" class="hero-cta">
+        <span>View Experiences</span>
+        <span class="cta-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 10: FOOTER BRAND ========== -->
+  <section class="footer-brand">
+    <div class="footer-brand-text reveal">PARIS BY EMILY</div>
+  </section>
+
+  <!-- ========== SECTION 11: FOOTER BOTTOM ========== -->
+  <footer class="footer-bottom" id="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navigate</h4>
+        <a href="#experiences">Experiences</a>
+        <a href="#">Privé</a>
+        <a href="#">Gift Cards</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Discover</h4>
+        <a href="paris.html">Paris</a>
+        <a href="#">Rome</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">More</h4>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Follow</h4>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom-bar">
+      <span>© 2025 Paris By Emily. All rights reserved.</span>
+      <div class="footer-netflix">
+        <span>An officially licensed Netflix experience</span>
+      </div>
+      <a href="#" class="footer-privacy-link">privacy</a>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <span class="cookie-text">We use cookies to enhance your experience on our site.</span>
+    <div class="cookie-btns">
+      <button class="cookie-btn cookie-btn--decline" id="cookie-decline">Decline</button>
+      <button class="cookie-btn cookie-btn--accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+  <script src="js/paris.js"></script>
+</body>
+</html>
